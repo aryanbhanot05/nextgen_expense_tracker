@@ -1,0 +1,154 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Ocean Theme - Deep blues and teals with glassmorphism */
+    --background: 210 100% 97%;
+    --foreground: 215 25% 15%;
+
+    --card: 210 60% 98%;
+    --card-foreground: 215 25% 15%;
+
+    --popover: 210 60% 98%;
+    --popover-foreground: 215 25% 15%;
+
+    /* Primary - Deep ocean blue */
+    --primary: 213 45% 35%;
+    --primary-foreground: 210 40% 98%;
+
+    /* Secondary - Teal accent */
+    --secondary: 174 60% 51%;
+    --secondary-foreground: 215 25% 15%;
+
+    --muted: 210 40% 92%;
+    --muted-foreground: 215 16% 47%;
+
+    /* Accent - Aqua glow */
+    --accent: 187 85% 53%;
+    --accent-foreground: 215 25% 15%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 210 30% 88%;
+    --input: 210 30% 90%;
+    --ring: 187 85% 53%;
+
+    --radius: 0.75rem;
+
+    /* Glassmorphism effects */
+    --glass-background: 210 60% 98% / 0.7;
+    --glass-border: 210 40% 90% / 0.3;
+    
+    /* Chart colors */
+    --chart-1: 174 60% 51%;
+    --chart-2: 187 85% 53%;
+    --chart-3: 213 45% 45%;
+    --chart-4: 203 89% 53%;
+    --chart-5: 221 83% 53%;
+  }
+
+  .dark {
+    /* Dark Ocean Theme - Deep sea with glowing accents */
+    --background: 215 30% 8%;
+    --foreground: 210 40% 95%;
+
+    --card: 215 28% 12%;
+    --card-foreground: 210 40% 95%;
+
+    --popover: 215 28% 12%;
+    --popover-foreground: 210 40% 95%;
+
+    /* Primary - Bright teal */
+    --primary: 174 60% 51%;
+    --primary-foreground: 215 30% 8%;
+
+    /* Secondary - Deep blue */
+    --secondary: 213 45% 25%;
+    --secondary-foreground: 210 40% 95%;
+
+    --muted: 215 25% 18%;
+    --muted-foreground: 215 20% 65%;
+
+    /* Accent - Glowing aqua */
+    --accent: 187 85% 53%;
+    --accent-foreground: 215 30% 8%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 215 25% 20%;
+    --input: 215 25% 20%;
+    --ring: 187 85% 53%;
+
+    /* Glassmorphism effects for dark mode */
+    --glass-background: 215 28% 12% / 0.7;
+    --glass-border: 210 40% 30% / 0.3;
+    
+    /* Chart colors for dark mode */
+    --chart-1: 174 60% 51%;
+    --chart-2: 187 85% 53%;
+    --chart-3: 203 89% 53%;
+    --chart-4: 213 45% 55%;
+    --chart-5: 221 83% 53%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  /* Glassmorphism utility classes */
+  .glass {
+    background: hsl(var(--glass-background));
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid hsl(var(--glass-border));
+  }
+  
+  .glass-card {
+    @apply glass rounded-xl shadow-lg;
+  }
+  
+  /* Glow effects */
+  .glow {
+    box-shadow: 0 0 20px hsl(var(--accent) / 0.3);
+  }
+  
+  .glow-hover {
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .glow-hover:hover {
+    box-shadow: 0 0 25px hsl(var(--accent) / 0.5);
+  }
+
+  /* Smooth animations */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
